@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { LocaleProvider } from "@/hooks/useLocale";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,6 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nikakachibaia.vercel.app"),
   title: {
     default: "Nika Kachibaia — Full Stack Developer",
     template: "%s — Nika Kachibaia",
@@ -73,6 +75,7 @@ export default function RootLayout({
             <Footer />
           </LocaleProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
