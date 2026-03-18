@@ -4,12 +4,16 @@ import { motion } from "framer-motion";
 import { Briefcase, ExternalLink } from "lucide-react";
 import { Experience } from "@/types";
 import { formatDate } from "@/lib/utils";
+import { useLocale } from "@/hooks/useLocale";
 
 interface TimelineProps {
   experiences: Experience[];
 }
 
 export function Timeline({ experiences }: TimelineProps) {
+  const { locale } = useLocale();
+  const isKa = locale === "ka";
+
   return (
     <div className="relative">
       {/* Glowing vertical line */}
@@ -47,10 +51,12 @@ export function Timeline({ experiences }: TimelineProps) {
               <div className="rounded-2xl glow-border glow-border-hover bg-card/80 backdrop-blur-sm p-6">
                 <div className="flex items-start justify-between gap-2">
                   <div>
-                    <h3 className="font-semibold text-lg">{exp.role}</h3>
+                    <h3 className="font-semibold text-lg">
+                      {isKa ? exp.roleKa : exp.role}
+                    </h3>
                     <div className="mt-1 flex items-center gap-2">
                       <span className="text-accent font-medium text-sm">
-                        {exp.company}
+                        {isKa ? exp.companyKa : exp.company}
                       </span>
                       {exp.companyUrl && (
                         <a
@@ -65,16 +71,16 @@ export function Timeline({ experiences }: TimelineProps) {
                     </div>
                   </div>
                   <span className="shrink-0 rounded-full bg-accent/10 px-3 py-1 text-xs font-mono font-medium text-accent">
-                    {formatDate(exp.startDate)} — {formatDate(exp.endDate)}
+                    {formatDate(exp.startDate)} — {exp.endDate === "Present" ? (isKa ? "დღემდე" : "Present") : formatDate(exp.endDate)}
                   </span>
                 </div>
 
                 <p className="mt-3 text-sm text-muted-foreground">
-                  {exp.description}
+                  {isKa ? exp.descriptionKa : exp.description}
                 </p>
 
                 <ul className="mt-4 space-y-2">
-                  {exp.highlights.map((highlight, i) => (
+                  {(isKa ? exp.highlightsKa : exp.highlights).map((highlight, i) => (
                     <li
                       key={i}
                       className="flex items-start gap-2 text-sm text-muted-foreground"
@@ -85,16 +91,18 @@ export function Timeline({ experiences }: TimelineProps) {
                   ))}
                 </ul>
 
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {exp.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-md bg-accent/10 px-2.5 py-1 text-xs font-mono font-medium text-accent"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                {exp.technologies.length > 0 && (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {exp.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-md bg-accent/10 px-2.5 py-1 text-xs font-mono font-medium text-accent"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </motion.div>

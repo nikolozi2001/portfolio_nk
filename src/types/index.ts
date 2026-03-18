@@ -22,13 +22,18 @@ export interface Skill {
 export interface Experience {
   id: string;
   role: string;
+  roleKa: string;
   company: string;
+  companyKa: string;
   companyUrl?: string;
   location: string;
+  locationKa: string;
   startDate: string;
   endDate: string | "Present";
   description: string;
+  descriptionKa: string;
   highlights: string[];
+  highlightsKa: string[];
   technologies: string[];
 }
 
