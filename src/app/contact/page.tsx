@@ -1,14 +1,11 @@
-import type { Metadata } from "next";
+"use client";
+
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { Mail, MapPin, Github, Linkedin, Twitter } from "lucide-react";
 import { siteConfig, socialLinks } from "@/data/site";
-
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Get in touch — I'd love to hear about your project.",
-};
+import { useLocale } from "@/hooks/useLocale";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   github: Github,
@@ -17,11 +14,13 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 };
 
 export default function ContactPage() {
+  const { t } = useLocale();
+
   return (
     <div className="mx-auto max-w-6xl px-6 py-20">
       <SectionHeading
-        title="Get in Touch"
-        subtitle="Have a project in mind or just want to say hi? I'd love to hear from you."
+        title={t.contact.title}
+        subtitle={t.contact.subtitle}
       />
 
       <div className="mt-16 grid gap-12 lg:grid-cols-5">
@@ -33,7 +32,7 @@ export default function ContactPage() {
                 <Mail className="h-5 w-5 text-accent" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Email</p>
+                <p className="text-sm text-muted-foreground">{t.contact.email}</p>
                 <a
                   href={`mailto:${siteConfig.email}`}
                   className="font-medium hover:text-accent transition-colors"
@@ -48,7 +47,7 @@ export default function ContactPage() {
                 <MapPin className="h-5 w-5 text-accent" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Location</p>
+                <p className="text-sm text-muted-foreground">{t.contact.location}</p>
                 <p className="font-medium">{siteConfig.location}</p>
               </div>
             </div>
@@ -57,7 +56,7 @@ export default function ContactPage() {
 
             <div>
               <p className="mb-3 text-sm font-medium text-muted-foreground">
-                Find me on
+                {t.contact.findMe}
               </p>
               <div className="flex gap-3">
                 {socialLinks.map((link) => {

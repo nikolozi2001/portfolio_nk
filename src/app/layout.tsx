@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
+import { LocaleProvider } from "@/hooks/useLocale";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
@@ -66,9 +67,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>
-          <Navbar />
-          <main className="min-h-screen pt-16">{children}</main>
-          <Footer />
+          <LocaleProvider>
+            <Navbar />
+            <main className="min-h-screen pt-16">{children}</main>
+            <Footer />
+          </LocaleProvider>
         </ThemeProvider>
       </body>
     </html>

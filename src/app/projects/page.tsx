@@ -6,18 +6,20 @@ import { Search } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProjectCard } from "@/components/sections/ProjectCard";
 import { projects } from "@/data/projects";
+import { useLocale } from "@/hooks/useLocale";
 import { cn } from "@/lib/utils";
-
-const categories = [
-  { value: "all", label: "All" },
-  { value: "frontend", label: "Frontend" },
-  { value: "fullstack", label: "Full Stack" },
-  { value: "mobile", label: "Mobile" },
-];
 
 export default function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const { t } = useLocale();
+
+  const categories = [
+    { value: "all", label: t.projects.all },
+    { value: "frontend", label: t.projects.frontend },
+    { value: "fullstack", label: t.projects.fullstack },
+    { value: "mobile", label: t.projects.mobile },
+  ];
 
   const filtered = projects.filter((p) => {
     const matchesCategory =
@@ -25,15 +27,15 @@ export default function ProjectsPage() {
     const matchesSearch =
       !searchQuery ||
       p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      p.tags.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()));
+      p.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-20">
       <SectionHeading
-        title="Projects"
-        subtitle="A collection of projects I've worked on."
+        title={t.projects.title}
+        subtitle={t.projects.subtitle}
       />
 
       {/* Filters */}
@@ -59,7 +61,7 @@ export default function ProjectsPage() {
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <input
             type="text"
-            placeholder="Search projects..."
+            placeholder={t.projects.search}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full rounded-lg border border-border bg-card py-2 pl-10 pr-4 text-sm placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent sm:w-64"
@@ -87,7 +89,7 @@ export default function ProjectsPage() {
 
       {filtered.length === 0 && (
         <p className="mt-20 text-center text-lg text-muted-foreground">
-          No projects found. Try a different filter or search term.
+          {t.projects.noResults}
         </p>
       )}
     </div>

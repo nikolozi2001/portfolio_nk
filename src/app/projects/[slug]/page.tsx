@@ -1,34 +1,22 @@
+"use client";
+
 import { notFound } from "next/navigation";
-import type { Metadata } from "next";
+import { use } from "react";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { projects } from "@/data/projects";
 import { formatDate } from "@/lib/utils";
+import { useLocale } from "@/hooks/useLocale";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
-}
-
-export async function generateMetadata({
-  params,
-}: ProjectPageProps): Promise<Metadata> {
-  const { slug } = await params;
+export default function ProjectPage({ params }: ProjectPageProps) {
+  const { slug } = use(params);
   const project = projects.find((p) => p.slug === slug);
-  if (!project) return {};
-  return {
-    title: project.title,
-    description: project.description,
-  };
-}
-
-export default async function ProjectPage({ params }: ProjectPageProps) {
-  const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const { t } = useLocale();
 
   if (!project) notFound();
 
@@ -39,7 +27,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
       >
         <ArrowLeft className="h-4 w-4" />
-        Back to Projects
+        {t.projects.backToProjects}
       </Link>
 
       <AnimatedSection className="mt-8">
@@ -72,7 +60,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2 text-sm font-medium transition-colors hover:bg-muted"
                 >
                   <Github className="h-4 w-4" />
-                  Code
+                  {t.projects.code}
                 </a>
               )}
               {project.liveUrl && (
@@ -83,7 +71,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-dark"
                 >
                   <ExternalLink className="h-4 w-4" />
-                  Live Demo
+                  {t.projects.liveDemo}
                 </a>
               )}
             </div>

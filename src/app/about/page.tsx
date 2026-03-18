@@ -1,26 +1,25 @@
-import type { Metadata } from "next";
+"use client";
+
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { Code, Coffee, MapPin, GraduationCap } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "About",
-  description: "Learn more about Nika Kachibaia — Full Stack Developer",
-};
-
-const stats = [
-  { icon: Code, label: "Years in IT", value: "7+" },
-  { icon: GraduationCap, label: "Education", value: "CS @ Ilia State" },
-  { icon: Coffee, label: "Projects Built", value: "80+" },
-  { icon: MapPin, label: "Based in", value: "Tbilisi, GE" },
-];
+import { useLocale } from "@/hooks/useLocale";
 
 export default function AboutPage() {
+  const { t } = useLocale();
+
+  const stats = [
+    { icon: Code, label: t.about.statYears, value: "7+" },
+    { icon: GraduationCap, label: t.about.statEducation, value: t.about.statEducationValue },
+    { icon: Coffee, label: t.about.statProjects, value: "80+" },
+    { icon: MapPin, label: t.about.statLocation, value: t.about.statLocationValue },
+  ];
+
   return (
     <div className="mx-auto max-w-6xl px-6 py-20">
       <SectionHeading
-        title="About Me"
-        subtitle="A passionate developer building real-world systems for data, maps, and the web."
+        title={t.about.title}
+        subtitle={t.about.subtitle}
       />
 
       <div className="mt-16 grid gap-12 lg:grid-cols-5">
@@ -36,27 +35,9 @@ export default function AboutPage() {
         {/* Bio */}
         <AnimatedSection className="lg:col-span-3 space-y-6" delay={0.1}>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              I&apos;m Nika Kachibaia — a Full Stack Developer based in Tbilisi,
-              Georgia. I currently work at the <strong className="text-foreground">National Statistics Office
-              of Georgia (GeoStat)</strong> where I build and maintain web
-              applications, database systems, GIS platforms, and statistical
-              data portals.
-            </p>
-            <p>
-              I studied <strong className="text-foreground">Computer Engineering</strong> at
-              Ilia State University and have completed additional training in
-              React, Python, JavaScript, Linux administration, Google Cloud,
-              and cybersecurity. My skill set spans frontend (React, Next.js,
-              TypeScript), backend (Node.js, PHP, SQL), and GIS technologies
-              (GeoServer, OpenLayers).
-            </p>
-            <p>
-              With 7+ years of total IT experience, I&apos;ve worked on everything
-              from interactive data visualization portals and AI chatbots to
-              mobile apps and e-commerce platforms. I&apos;m passionate about
-              building tools that make data accessible and useful.
-            </p>
+            <p>{t.about.bio1}</p>
+            <p>{t.about.bio2}</p>
+            <p>{t.about.bio3}</p>
           </div>
 
           {/* Stats */}

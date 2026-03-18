@@ -4,24 +4,26 @@ import { useState } from "react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SkillsGrid } from "@/components/sections/SkillsGrid";
 import { skills } from "@/data/skills";
+import { useLocale } from "@/hooks/useLocale";
 import { cn } from "@/lib/utils";
-
-const categories = [
-  { value: "all", label: "All" },
-  { value: "frontend", label: "Frontend" },
-  { value: "backend", label: "Backend" },
-  { value: "tools", label: "Tools" },
-  { value: "design", label: "Design" },
-];
 
 export default function SkillsPage() {
   const [active, setActive] = useState("all");
+  const { t } = useLocale();
+
+  const categories = [
+    { value: "all", label: t.skills.all },
+    { value: "frontend", label: t.skills.frontend },
+    { value: "backend", label: t.skills.backend },
+    { value: "tools", label: t.skills.tools },
+    { value: "design", label: t.skills.design },
+  ];
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-20">
       <SectionHeading
-        title="Skills & Technologies"
-        subtitle="The tools and technologies I use to bring ideas to life."
+        title={t.skills.title}
+        subtitle={t.skills.subtitle}
       />
 
       <div className="mt-12 flex flex-wrap justify-center gap-2">

@@ -5,14 +5,26 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon, Languages } from "lucide-react";
 import { navItems } from "@/data/site";
+import { useLocale } from "@/hooks/useLocale";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
+  const { locale, setLocale, t } = useLocale();
+
+  // Map nav hrefs to translated labels
+  const navLabels: Record<string, string> = {
+    "/": t.nav.home,
+    "/about": t.nav.about,
+    "/projects": t.nav.projects,
+    "/skills": t.nav.skills,
+    "/experience": t.nav.experience,
+    "/contact": t.nav.contact,
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-border">
@@ -35,7 +47,7 @@ export function Navbar() {
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >
-                {item.label}
+                {navLabels[item.href] || item.label}
                 {pathname === item.href && (
                   <motion.div
                     layoutId="navbar-indicator"
@@ -49,7 +61,17 @@ export function Navbar() {
         </ul>
 
         {/* Actions */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
+          {/* Language Switcher */}
+          <button
+            onClick={() => setLocale(locale === "en" ? "ka" : "en")}
+            className="rounded-lg px-2.5 py-2 text-xs font-bold text-muted-foreground hover:text-foreground hover:bg-muted transition-colors flex items-center gap-1.5"
+            aria-label="Switch language"
+          >
+            <Languages className="h-4 w-4" />
+            <span>{locale === "en" ? "ქარ" : "ENG"}</span>
+          </button>
+
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="rounded-lg p-2 text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
@@ -91,7 +113,7 @@ export function Navbar() {
                         : "text-muted-foreground hover:text-foreground hover:bg-muted"
                     )}
                   >
-                    {item.label}
+                    {navLabels[item.href] || item.label}
                   </Link>
                 </li>
               ))}

@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { Github, Linkedin, Twitter, Heart } from "lucide-react";
 import { siteConfig, socialLinks } from "@/data/site";
+import { useLocale } from "@/hooks/useLocale";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   github: Github,
@@ -9,6 +12,8 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 };
 
 export function Footer() {
+  const { t } = useLocale();
+
   return (
     <footer className="border-t border-border">
       <div className="mx-auto max-w-6xl px-6 py-12">
@@ -45,9 +50,9 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="mt-8 flex items-center justify-center gap-1 text-sm text-muted-foreground">
-          <span>© {new Date().getFullYear()} {siteConfig.name}. Built with</span>
+          <span>© {new Date().getFullYear()} {siteConfig.name}. {t.footer.builtWith}</span>
           <Heart className="h-3 w-3 fill-red-500 text-red-500" />
-          <span>and Next.js</span>
+          <span>{t.footer.and}</span>
         </div>
       </div>
     </footer>

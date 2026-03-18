@@ -1,3 +1,5 @@
+"use client";
+
 import { Hero } from "@/components/sections/Hero";
 import { ProjectCard } from "@/components/sections/ProjectCard";
 import { SkillsGrid } from "@/components/sections/SkillsGrid";
@@ -5,11 +7,13 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { projects } from "@/data/projects";
 import { skills } from "@/data/skills";
+import { useLocale } from "@/hooks/useLocale";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export default function HomePage() {
   const featuredProjects = projects.filter((p) => p.featured);
+  const { t } = useLocale();
 
   return (
     <>
@@ -18,8 +22,8 @@ export default function HomePage() {
       {/* Featured Projects */}
       <AnimatedSection className="mx-auto max-w-6xl px-6 py-20">
         <SectionHeading
-          title="Featured Projects"
-          subtitle="A selection of my recent work that I'm most proud of."
+          title={t.home.featuredTitle}
+          subtitle={t.home.featuredSubtitle}
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featuredProjects.map((project, index) => (
@@ -31,7 +35,7 @@ export default function HomePage() {
             href="/projects"
             className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline"
           >
-            View All Projects
+            {t.home.viewAll}
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -40,8 +44,8 @@ export default function HomePage() {
       {/* Skills Preview */}
       <AnimatedSection className="mx-auto max-w-6xl px-6 py-20">
         <SectionHeading
-          title="Skills & Technologies"
-          subtitle="The tools and technologies I use to bring ideas to life."
+          title={t.home.skillsTitle}
+          subtitle={t.home.skillsSubtitle}
         />
         <div className="mt-12">
           <SkillsGrid skills={skills.slice(0, 12)} />
@@ -51,7 +55,7 @@ export default function HomePage() {
             href="/skills"
             className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline"
           >
-            View All Skills
+            {t.home.viewAllSkills}
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -66,16 +70,16 @@ export default function HomePage() {
           </div>
           <div className="relative">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Let&apos;s Work Together
+              {t.home.ctaTitle}
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-muted-foreground">
-              Have a project in mind? I&apos;d love to hear about it.
+              {t.home.ctaText}
             </p>
             <Link
               href="/contact"
               className="mt-8 inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/25 transition-all hover:bg-accent-dark hover:-translate-y-0.5"
             >
-              Get in Touch
+              {t.hero.cta}
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

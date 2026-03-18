@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import { ArrowDown, Download, Send } from "lucide-react";
 import Link from "next/link";
 import { siteConfig } from "@/data/site";
+import { useLocale } from "@/hooks/useLocale";
 
 export function Hero() {
+  const { t } = useLocale();
+
   return (
     <section className="relative flex min-h-screen items-center justify-center px-6">
       {/* Background gradient orbs */}
@@ -21,7 +24,7 @@ export function Hero() {
           transition={{ duration: 0.5 }}
         >
           <p className="mb-4 inline-block rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent">
-            Available for work
+            {t.hero.badge}
           </p>
         </motion.div>
 
@@ -31,7 +34,7 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
         >
-          Hi, I&apos;m{" "}
+          {t.hero.greeting}{" "}
           <span className="gradient-text">{siteConfig.name}</span>
         </motion.h1>
 
@@ -55,14 +58,14 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/25 transition-all hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/30 hover:-translate-y-0.5"
           >
             <Send className="h-4 w-4" />
-            Get in Touch
+            {t.hero.cta}
           </Link>
           <Link
             href="/projects"
             className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-6 py-3 text-sm font-semibold transition-all hover:bg-muted hover:-translate-y-0.5"
           >
             <Download className="h-4 w-4" />
-            View Projects
+            {t.hero.viewProjects}
           </Link>
         </motion.div>
       </div>
