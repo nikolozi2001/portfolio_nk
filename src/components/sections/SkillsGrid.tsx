@@ -23,19 +23,22 @@ export function SkillsGrid({ skills, category }: SkillsGridProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.3, delay: index * 0.05 }}
           whileHover={{ y: -4 }}
-          className="group rounded-xl border border-border bg-card p-4 transition-colors hover:border-accent/50"
+          className="group rounded-xl glow-border glow-border-hover bg-card/80 backdrop-blur-sm p-4"
         >
           <div className="flex items-center gap-3">
             <span className="text-2xl">{skill.icon}</span>
             <div className="min-w-0 flex-1">
-              <p className="font-medium text-sm truncate">{skill.name}</p>
-              <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-muted">
+              <div className="flex items-center justify-between">
+                <p className="font-medium font-mono text-sm truncate">{skill.name}</p>
+                <span className="text-xs font-mono text-accent ml-2 shrink-0">{skill.level}%</span>
+              </div>
+              <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-muted/60">
                 <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: `${skill.level}%` }}
                   viewport={{ once: true }}
                   transition={{ duration: 1, delay: 0.2 + index * 0.05 }}
-                  className="h-full rounded-full bg-gradient-to-r from-accent to-accent-light"
+                  className="h-full rounded-full bg-gradient-to-r from-accent to-accent-secondary shadow-[0_0_8px_var(--glow)]"
                 />
               </div>
             </div>

@@ -33,7 +33,7 @@ export default function HomePage() {
         <div className="mt-10 text-center">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-mono font-medium text-accent hover:underline"
           >
             {t.home.viewAll}
             <ArrowRight className="h-4 w-4" />
@@ -53,7 +53,7 @@ export default function HomePage() {
         <div className="mt-10 text-center">
           <Link
             href="/skills"
-            className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-mono font-medium text-accent hover:underline"
           >
             {t.home.viewAllSkills}
             <ArrowRight className="h-4 w-4" />
@@ -63,10 +63,10 @@ export default function HomePage() {
 
       {/* CTA */}
       <AnimatedSection className="mx-auto max-w-6xl px-6 py-20">
-        <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-12 text-center">
+        <div className="relative overflow-hidden rounded-3xl glow-border bg-card/80 backdrop-blur-sm p-12 text-center">
           <div className="pointer-events-none absolute inset-0">
             <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-accent/10 blur-[80px]" />
-            <div className="absolute -bottom-20 -left-20 h-60 w-60 rounded-full bg-accent-light/10 blur-[80px]" />
+            <div className="absolute -bottom-20 -left-20 h-60 w-60 rounded-full bg-accent-secondary/10 blur-[80px]" />
           </div>
           <div className="relative">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
@@ -77,7 +77,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/25 transition-all hover:bg-accent-dark hover:-translate-y-0.5"
+              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-white shadow-[0_0_20px_-5px_var(--glow)] transition-all hover:bg-accent-dark hover:shadow-[0_0_30px_-5px_var(--glow)] hover:-translate-y-0.5"
             >
               {t.hero.cta}
               <ArrowRight className="h-4 w-4" />

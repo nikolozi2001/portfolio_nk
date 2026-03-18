@@ -16,14 +16,16 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
+      whileHover={{ rotateY: 2, rotateX: -2, scale: 1.02 }}
+      style={{ perspective: 1000 }}
     >
       <Link href={`/projects/${project.slug}`} className="group block">
-        <article className="overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5 hover:-translate-y-1">
+        <article className="overflow-hidden rounded-2xl glow-border glow-border-hover bg-card/80 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1">
           {/* Image placeholder */}
           <div className="relative aspect-video overflow-hidden bg-muted">
-            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-accent/20 to-accent-light/20">
-              <span className="text-4xl font-bold text-accent/30">
+            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-accent/20 to-accent-secondary/20">
+              <span className="text-4xl font-bold font-mono text-accent/20">
                 {project.title.charAt(0)}
               </span>
             </div>
@@ -62,7 +64,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               {project.tags.slice(0, 4).map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-md bg-muted px-2.5 py-1 text-xs font-medium text-muted-foreground"
+                  className="rounded-md bg-accent/10 px-2.5 py-1 text-xs font-mono font-medium text-accent"
                 >
                   {tag}
                 </span>

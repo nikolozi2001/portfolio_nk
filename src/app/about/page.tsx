@@ -25,9 +25,9 @@ export default function AboutPage() {
       <div className="mt-16 grid gap-12 lg:grid-cols-5">
         {/* Photo */}
         <AnimatedSection className="lg:col-span-2">
-          <div className="aspect-square overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-accent/20 to-accent-light/20">
+          <div className="aspect-square overflow-hidden rounded-3xl glow-border bg-gradient-to-br from-accent/20 to-accent-secondary/20">
             <div className="flex h-full items-center justify-center">
-              <span className="text-8xl font-bold text-accent/30">NK</span>
+              <span className="text-8xl font-bold font-mono neon-text">NK</span>
             </div>
           </div>
         </AnimatedSection>
@@ -45,10 +45,10 @@ export default function AboutPage() {
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-xl border border-border bg-card p-4"
+                className="rounded-xl glow-border bg-card/80 backdrop-blur-sm p-4"
               >
                 <stat.icon className="h-5 w-5 text-accent" />
-                <p className="mt-2 text-2xl font-bold">{stat.value}</p>
+                <p className="mt-2 text-2xl font-bold font-mono">{stat.value}</p>
                 <p className="text-sm text-muted-foreground">{stat.label}</p>
               </div>
             ))}

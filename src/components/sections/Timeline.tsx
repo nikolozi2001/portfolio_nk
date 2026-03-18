@@ -12,8 +12,13 @@ interface TimelineProps {
 export function Timeline({ experiences }: TimelineProps) {
   return (
     <div className="relative">
-      {/* Vertical line */}
-      <div className="absolute left-6 top-0 bottom-0 w-px bg-border md:left-1/2" />
+      {/* Glowing vertical line */}
+      <div
+        className="absolute left-6 top-0 bottom-0 w-0.5 md:left-1/2 shadow-[0_0_8px_var(--glow)]"
+        style={{
+          background: "linear-gradient(to bottom, transparent, var(--accent), transparent)",
+        }}
+      />
 
       <div className="space-y-12">
         {experiences.map((exp, index) => (
@@ -27,16 +32,19 @@ export function Timeline({ experiences }: TimelineProps) {
               index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             }`}
           >
-            {/* Timeline dot */}
+            {/* Timeline dot with pulse on first item */}
             <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-10">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-background bg-accent shadow-lg shadow-accent/25">
+              {index === 0 && (
+                <div className="absolute inset-0 rounded-full bg-accent/30 animate-ping" />
+              )}
+              <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-background bg-accent shadow-[0_0_15px_var(--glow)]">
                 <Briefcase className="h-5 w-5 text-white" />
               </div>
             </div>
 
             {/* Content */}
             <div className={`ml-16 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
-              <div className="rounded-2xl border border-border bg-card p-6 transition-all hover:border-accent/30 hover:shadow-md">
+              <div className="rounded-2xl glow-border glow-border-hover bg-card/80 backdrop-blur-sm p-6">
                 <div className="flex items-start justify-between gap-2">
                   <div>
                     <h3 className="font-semibold text-lg">{exp.role}</h3>
@@ -56,7 +64,7 @@ export function Timeline({ experiences }: TimelineProps) {
                       )}
                     </div>
                   </div>
-                  <span className="shrink-0 rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
+                  <span className="shrink-0 rounded-full bg-accent/10 px-3 py-1 text-xs font-mono font-medium text-accent">
                     {formatDate(exp.startDate)} — {formatDate(exp.endDate)}
                   </span>
                 </div>
@@ -71,7 +79,7 @@ export function Timeline({ experiences }: TimelineProps) {
                       key={i}
                       className="flex items-start gap-2 text-sm text-muted-foreground"
                     >
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent shadow-[0_0_4px_var(--glow)]" />
                       {highlight}
                     </li>
                   ))}
@@ -81,7 +89,7 @@ export function Timeline({ experiences }: TimelineProps) {
                   {exp.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-md bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent"
+                      className="rounded-md bg-accent/10 px-2.5 py-1 text-xs font-mono font-medium text-accent"
                     >
                       {tech}
                     </span>
