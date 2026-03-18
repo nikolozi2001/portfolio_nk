@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx vercel:*)",
+      "Bash(where vercel:*)",
+      "Bash(npm config:*)",
+      "Bash(dir /s /b \"C:\\\\Users\\\\nqachibaia\\\\AppData\\\\*vercel*\\\\auth*\")",
+      "Bash(dir /s /b \"C:\\\\Users\\\\nqachibaia\\\\AppData\\\\Roaming\\\\*vercel*\\\\auth*\")",
+      "Read(//c/Users/nqachibaia/OneDrive/Desktop/portfolio/$HOME/.config/**)",
+      "Bash(python3 -c \"import sys,json; print\\(list\\(json.load\\(sys.stdin\\).keys\\(\\)\\)\\)\")",
+      "Bash(node -e \"const a=require\\(''C:/Users/nqachibaia/AppData/Roaming/com.vercel.cli/Data/auth.json''\\); console.log\\(Object.keys\\(a\\)\\)\")"
+    ]
+  }
+}
