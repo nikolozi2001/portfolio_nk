@@ -80,6 +80,19 @@ export const translations = {
       downloadResume: "Download Resume",
     },
 
+    // Courses
+    courses: {
+      title: "University Courses",
+      subtitle: "Completed coursework at Ilia State University — Computer Engineering.",
+      all: "All",
+      cs: "Computer Science",
+      cyber: "Cybersecurity",
+      math: "Math & Physics",
+      general: "General",
+      credits: "credits",
+      score: "Score",
+    },
+
     // Contact
     contact: {
       title: "Get in Touch",
@@ -195,6 +208,19 @@ export const translations = {
       title: "გამოცდილება",
       subtitle: "ჩემი პროფესიული გზა და კომპანიები, სადაც ვმუშაობდი.",
       downloadResume: "რეზიუმეს ჩამოტვირთვა",
+    },
+
+    // Courses
+    courses: {
+      title: "საუნივერსიტეტო კურსები",
+      subtitle: "წარმატებით დახურული საგნები ილიას სახელმწიფო უნივერსიტეტში — კომპიუტერული ინჟინერია.",
+      all: "ყველა",
+      cs: "კომპიუტერული მეცნიერება",
+      cyber: "კიბერუსაფრთხოება",
+      math: "მათემატიკა და ფიზიკა",
+      general: "ზოგადი",
+      credits: "კრედიტი",
+      score: "ქულა",
     },
 
     // Contact
