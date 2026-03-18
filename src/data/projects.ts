@@ -12,7 +12,7 @@ export const projects: Project[] = [
     tags: ["TypeScript", "React Native", "Expo", "Node.js"],
     category: "fullstack",
     githubUrl: "https://github.com/nikolozi2001/FuelAPP",
-    featured: true,
+    featured: false,
     date: "2026-03",
   },
   {
@@ -26,7 +26,7 @@ export const projects: Project[] = [
     tags: ["React", "Node.js", "JavaScript", "Data Visualization"],
     category: "fullstack",
     githubUrl: "https://github.com/nikolozi2001/regional-statistics-react",
-    featured: true,
+    featured: false,
     date: "2025-10",
   },
   {
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     category: "fullstack",
     liveUrl: "https://medical-chatbot-frontend.vercel.app",
     githubUrl: "https://github.com/nikolozi2001/medical-chatbot-frontend",
-    featured: true,
+    featured: false,
     date: "2025-03",
   },
   {
@@ -170,5 +170,133 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/nikolozi2001/perfume-shopping-website",
     featured: false,
     date: "2025-09",
+  },
+  {
+    slug: "demography-api",
+    title: "Demography API",
+    description:
+      "Backend API for demographic data, serving population statistics and census data.",
+    longDescription:
+      "A Node.js REST API serving demographic and population statistics data. Provides endpoints for querying census data, population breakdowns by region, age groups, and other demographic indicators. Built for GeoStat's demographic data services.",
+    image: "/projects/demography-api.jpg",
+    tags: ["JavaScript", "Node.js", "REST API", "GeoStat"],
+    category: "fullstack",
+    githubUrl: "https://github.com/nikolozi2001/demograpy-api",
+    featured: true,
+    date: "2026-03",
+  },
+  {
+    slug: "business-register",
+    title: "Business Register",
+    description:
+      "Business registration and enterprise data management system.",
+    longDescription:
+      "A web application for managing business registration data and enterprise statistics. Features search, filtering, and data display of registered businesses. Built with JavaScript for GeoStat's business statistics division.",
+    image: "/projects/br.jpg",
+    tags: ["JavaScript", "Node.js", "GeoStat"],
+    category: "fullstack",
+    githubUrl: "https://github.com/nikolozi2001/br",
+    featured: true,
+    date: "2026-03",
+  },
+  {
+    slug: "geomap-api",
+    title: "GeoMap API",
+    description:
+      "Geospatial mapping API for serving geographic and statistical data on interactive maps.",
+    longDescription:
+      "A backend API service for geospatial data, providing map layers, geographic boundaries, and statistical overlays. Powers interactive mapping applications with region-based data queries and GeoJSON responses. Built for GeoStat's GIS infrastructure.",
+    image: "/projects/geomap-api.jpg",
+    tags: ["JavaScript", "Node.js", "GIS", "REST API"],
+    category: "fullstack",
+    githubUrl: "https://github.com/nikolozi2001/geomap-api",
+    featured: false,
+    date: "2026-02",
+  },
+  {
+    slug: "nrg-api",
+    title: "Energy Statistics API",
+    description:
+      "API for energy sector statistics — production, consumption, and distribution data.",
+    longDescription:
+      "A Node.js API serving energy sector statistics including production, consumption, and distribution data. Deployed on Vercel for reliable access to Georgia's energy statistical indicators.",
+    image: "/projects/nrg-api.jpg",
+    tags: ["JavaScript", "Node.js", "REST API", "Vercel"],
+    category: "fullstack",
+    liveUrl: "https://nrg-api.vercel.app",
+    githubUrl: "https://github.com/nikolozi2001/nrg-api",
+    featured: false,
+    date: "2026-01",
+  },
+  {
+    slug: "receipts",
+    title: "Receipts App",
+    description:
+      "Full-stack receipt management app with TypeScript frontend and Node.js backend.",
+    longDescription:
+      "A full-stack receipt management application with a TypeScript/React frontend and a Node.js/Express backend. Features receipt scanning, categorization, expense tracking, and reporting. Designed for personal and small business financial management.",
+    image: "/projects/receipts.jpg",
+    tags: ["TypeScript", "React", "Node.js", "Full Stack"],
+    category: "fullstack",
+    githubUrl: "https://github.com/nikolozi2001/receipts",
+    featured: false,
+    date: "2025-12",
+  },
+  {
+    slug: "pcaxis-server",
+    title: "PC-Axis Server",
+    description:
+      "Server for parsing and serving PC-Axis statistical data format used by statistics offices.",
+    longDescription:
+      "A Node.js server for reading, parsing, and serving data in the PC-Axis (.px) format — a standard used by national statistics offices worldwide. Converts PX files into JSON APIs for web consumption. Built for GeoStat's data dissemination pipeline.",
+    image: "/projects/pcaxis.jpg",
+    tags: ["JavaScript", "Node.js", "PC-Axis", "Statistics"],
+    category: "fullstack",
+    githubUrl: "https://github.com/nikolozi2001/pcaxis-server",
+    featured: true,
+    date: "2025-11",
+  },
+  {
+    slug: "formio-platform",
+    title: "Form.io Platform",
+    description:
+      "Form and data management platform for Progressive Web Applications.",
+    longDescription:
+      "A form and data management platform for building dynamic forms in Progressive Web Applications. Features drag-and-drop form building, validation rules, submission management, and API-driven form rendering. Based on the Form.io framework.",
+    image: "/projects/formio.jpg",
+    tags: ["HTML", "JavaScript", "PWA", "Forms"],
+    category: "frontend",
+    liveUrl: "https://form.io",
+    githubUrl: "https://github.com/nikolozi2001/formio",
+    featured: false,
+    date: "2025-11",
+  },
+  {
+    slug: "salary-calculator",
+    title: "Salary Calculator",
+    description:
+      "Interactive salary calculation tool with tax breakdowns and net income computation.",
+    longDescription:
+      "A web-based salary calculator that computes net income from gross salary, including Georgian tax breakdowns (income tax, pension contributions). Features real-time calculation, clean UI, and support for different employment types.",
+    image: "/projects/salary-calc.jpg",
+    tags: ["JavaScript", "Calculator", "Finance"],
+    category: "frontend",
+    githubUrl: "https://github.com/nikolozi2001/salary_calculator",
+    featured: false,
+    date: "2025-10",
+  },
+  {
+    slug: "kaleidoscope",
+    title: "Kaleidoscope",
+    description:
+      "Interactive visual kaleidoscope effect generator built with JavaScript.",
+    longDescription:
+      "An interactive web application that generates mesmerizing kaleidoscope visual effects. Built with JavaScript and Canvas API, featuring real-time pattern generation, customizable parameters, and smooth animations.",
+    image: "/projects/kaleidoscope.jpg",
+    tags: ["JavaScript", "Canvas API", "Creative"],
+    category: "frontend",
+    githubUrl: "https://github.com/nikolozi2001/kaleidoscope",
+    featured: false,
+    date: "2025-10",
   },
 ];
