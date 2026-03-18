@@ -102,6 +102,15 @@ export const translations = {
       sendAnother: "Send another message",
     },
 
+    // Site
+    site: {
+      name: "Nika Kachibaia",
+      title: "Full Stack Developer",
+      description:
+        "I build web applications, GIS systems, and data-driven platforms — with a focus on performance, scalability, and clean code.",
+      location: "Tbilisi, Georgia",
+    },
+
     // Footer
     footer: {
       builtWith: "Built with",
@@ -208,6 +217,15 @@ export const translations = {
       sentTitle: "შეტყობინება გაიგზავნა!",
       sentText: "მადლობა მომართვისთვის. მალე დაგიკავშირდებით.",
       sendAnother: "კიდევ ერთი შეტყობინების გაგზავნა",
+    },
+
+    // Site
+    site: {
+      name: "ნიკა ქაჩიბაია",
+      title: "Full Stack დეველოპერი",
+      description:
+        "ვქმნი ვებ აპლიკაციებს, GIS სისტემებს და მონაცემებზე დაფუძნებულ პლატფორმებს — ფოკუსით წარმადობაზე, მასშტაბირებადობაზე და სუფთა კოდზე.",
+      location: "თბილისი, საქართველო",
     },
 
     // Footer

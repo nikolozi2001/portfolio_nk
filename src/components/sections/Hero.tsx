@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Download, Send } from "lucide-react";
 import Link from "next/link";
-import { siteConfig } from "@/data/site";
 import { useLocale } from "@/hooks/useLocale";
 
 export function Hero() {
@@ -35,7 +34,7 @@ export function Hero() {
           className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
         >
           {t.hero.greeting}{" "}
-          <span className="gradient-text">{siteConfig.name}</span>
+          <span className="gradient-text">{t.site.name}</span>
         </motion.h1>
 
         <motion.p
@@ -44,7 +43,7 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl"
         >
-          {siteConfig.description}
+          {t.site.description}
         </motion.p>
 
         <motion.div

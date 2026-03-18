@@ -5,6 +5,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { Mail, MapPin, Github, Linkedin, Twitter } from "lucide-react";
 import { siteConfig, socialLinks } from "@/data/site";
+// siteConfig.email is not translated (stays the same in both languages)
 import { useLocale } from "@/hooks/useLocale";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -48,7 +49,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">{t.contact.location}</p>
-                <p className="font-medium">{siteConfig.location}</p>
+                <p className="font-medium">{t.site.location}</p>
               </div>
             </div>
 
