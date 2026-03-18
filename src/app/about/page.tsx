@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { Code, Coffee, MapPin, GraduationCap } from "lucide-react";
@@ -25,10 +26,15 @@ export default function AboutPage() {
       <div className="mt-16 grid gap-12 lg:grid-cols-5">
         {/* Photo */}
         <AnimatedSection className="lg:col-span-2">
-          <div className="aspect-square overflow-hidden rounded-3xl glow-border bg-gradient-to-br from-accent/20 to-accent-secondary/20">
-            <div className="flex h-full items-center justify-center">
-              <span className="text-8xl font-bold font-mono neon-text">NK</span>
-            </div>
+          <div className="aspect-square overflow-hidden rounded-3xl glow-border">
+            <Image
+              src="/nk.JPEG"
+              alt="Nika Kachibaia"
+              width={600}
+              height={600}
+              className="h-full w-full object-cover"
+              priority
+            />
           </div>
         </AnimatedSection>
 

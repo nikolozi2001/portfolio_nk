@@ -5,6 +5,7 @@ import { use } from "react";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { ProjectThumbnail } from "@/components/ui/ProjectThumbnail";
 import { projects } from "@/data/projects";
 import { formatDate } from "@/lib/utils";
 import { useLocale } from "@/hooks/useLocale";
@@ -31,13 +32,14 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       </Link>
 
       <AnimatedSection className="mt-8">
-        {/* Hero image placeholder */}
-        <div className="aspect-video overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-accent/20 to-accent-light/20">
-          <div className="flex h-full items-center justify-center">
-            <span className="text-6xl font-bold text-accent/30">
-              {project.title.charAt(0)}
-            </span>
-          </div>
+        {/* Project hero thumbnail */}
+        <div className="aspect-video overflow-hidden rounded-2xl glow-border">
+          <ProjectThumbnail
+            title={project.title}
+            slug={project.slug}
+            tags={project.tags}
+            className="w-full h-full"
+          />
         </div>
 
         {/* Header */}
