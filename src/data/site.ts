@@ -4,9 +4,9 @@ export const siteConfig = {
   name: "Nika Kachibaia",
   title: "Full Stack Developer",
   description:
-    "I build exceptional digital experiences that are fast, accessible, and visually compelling.",
-  email: "hello@johndoe.dev",
-  location: "San Francisco, CA",
+    "I build web applications, GIS systems, and data-driven platforms — with a focus on performance, scalability, and clean code.",
+  email: "mr.qachibaia44@gmail.com",
+  location: "Tbilisi, Georgia",
   resumeUrl: "/resume.pdf",
   ogImage: "/og.jpg",
 };
@@ -21,7 +21,7 @@ export const navItems: NavItem[] = [
 ];
 
 export const socialLinks: SocialLink[] = [
-  { name: "GitHub", url: "https://github.com", icon: "github" },
-  { name: "LinkedIn", url: "https://linkedin.com", icon: "linkedin" },
-  { name: "Twitter", url: "https://twitter.com", icon: "twitter" },
+  { name: "GitHub", url: "https://github.com/nikolozi2001", icon: "github" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/nika-kachibaia-7b7634198/", icon: "linkedin" },
+  { name: "Twitter", url: "https://x.com/NikaKachibaia1", icon: "twitter" },
 ];

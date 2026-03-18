@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { Code, Coffee, MapPin, Briefcase } from "lucide-react";
+import { Code, Coffee, MapPin, GraduationCap } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About",
@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { icon: Code, label: "Years of Experience", value: "5+" },
-  { icon: Briefcase, label: "Projects Completed", value: "50+" },
-  { icon: Coffee, label: "Cups of Coffee", value: "∞" },
-  { icon: MapPin, label: "Based in", value: "SF, CA" },
+  { icon: Code, label: "Years in IT", value: "7+" },
+  { icon: GraduationCap, label: "Education", value: "CS @ Ilia State" },
+  { icon: Coffee, label: "Projects Built", value: "80+" },
+  { icon: MapPin, label: "Based in", value: "Tbilisi, GE" },
 ];
 
 export default function AboutPage() {
@@ -20,15 +20,15 @@ export default function AboutPage() {
     <div className="mx-auto max-w-6xl px-6 py-20">
       <SectionHeading
         title="About Me"
-        subtitle="A passionate developer who loves turning ideas into reality."
+        subtitle="A passionate developer building real-world systems for data, maps, and the web."
       />
 
       <div className="mt-16 grid gap-12 lg:grid-cols-5">
-        {/* Image placeholder */}
+        {/* Photo */}
         <AnimatedSection className="lg:col-span-2">
           <div className="aspect-square overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-accent/20 to-accent-light/20">
             <div className="flex h-full items-center justify-center">
-              <span className="text-8xl font-bold text-accent/30">JD</span>
+              <span className="text-8xl font-bold text-accent/30">NK</span>
             </div>
           </div>
         </AnimatedSection>
@@ -37,21 +37,25 @@ export default function AboutPage() {
         <AnimatedSection className="lg:col-span-3 space-y-6" delay={0.1}>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              I&apos;m a Full Stack Developer with 5+ years of experience building
-              web applications that are fast, accessible, and visually
-              compelling. I specialize in React, Next.js, and TypeScript, and
-              I&apos;m passionate about creating great user experiences.
+              I&apos;m Nika Kachibaia — a Full Stack Developer based in Tbilisi,
+              Georgia. I currently work at the <strong className="text-foreground">National Statistics Office
+              of Georgia (GeoStat)</strong> where I build and maintain web
+              applications, database systems, GIS platforms, and statistical
+              data portals.
             </p>
             <p>
-              My journey in software development started when I built my first
-              website at 16. Since then, I&apos;ve worked with startups, agencies,
-              and enterprise companies to deliver products that make a real
-              impact.
+              I studied <strong className="text-foreground">Computer Engineering</strong> at
+              Ilia State University and have completed additional training in
+              React, Python, JavaScript, Linux administration, Google Cloud,
+              and cybersecurity. My skill set spans frontend (React, Next.js,
+              TypeScript), backend (Node.js, PHP, SQL), and GIS technologies
+              (GeoServer, OpenLayers).
             </p>
             <p>
-              When I&apos;m not coding, you can find me exploring new technologies,
-              contributing to open-source projects, or sharing what I&apos;ve
-              learned through blog posts and talks.
+              With 7+ years of total IT experience, I&apos;ve worked on everything
+              from interactive data visualization portals and AI chatbots to
+              mobile apps and e-commerce platforms. I&apos;m passionate about
+              building tools that make data accessible and useful.
             </p>
           </div>
 

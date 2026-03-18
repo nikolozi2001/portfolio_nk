@@ -19,7 +19,7 @@ export function Navbar() {
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="/" className="text-xl font-bold tracking-tight">
-          <span className="gradient-text">JD</span>
+          <span className="gradient-text">NK</span>
         </Link>
 
         {/* Desktop Nav */}

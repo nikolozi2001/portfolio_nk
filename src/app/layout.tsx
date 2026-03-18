@@ -21,14 +21,18 @@ export const metadata: Metadata = {
     template: "%s — Nika Kachibaia",
   },
   description:
-    "I build exceptional digital experiences that are fast, accessible, and visually compelling.",
+    "I build web applications, GIS systems, and data-driven platforms — with a focus on performance, scalability, and clean code.",
   keywords: [
+    "Nika Kachibaia",
     "developer",
     "portfolio",
     "full stack",
     "react",
     "next.js",
     "typescript",
+    "GIS",
+    "GeoStat",
+    "Georgia",
   ],
   authors: [{ name: "Nika Kachibaia" }],
   openGraph: {
@@ -37,13 +41,13 @@ export const metadata: Metadata = {
     siteName: "Nika Kachibaia Portfolio",
     title: "Nika Kachibaia — Full Stack Developer",
     description:
-      "I build exceptional digital experiences that are fast, accessible, and visually compelling.",
+      "I build web applications, GIS systems, and data-driven platforms — with a focus on performance, scalability, and clean code.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Nika Kachibaia — Full Stack Developer",
     description:
-      "I build exceptional digital experiences that are fast, accessible, and visually compelling.",
+      "I build web applications, GIS systems, and data-driven platforms — with a focus on performance, scalability, and clean code.",
   },
   robots: {
     index: true,
