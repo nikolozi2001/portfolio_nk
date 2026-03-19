@@ -28,7 +28,7 @@ export default function AboutPage() {
         <AnimatedSection className="lg:col-span-2">
           <div className="aspect-square overflow-hidden rounded-3xl glow-border">
             <Image
-              src="/nk.JPEG"
+              src="/nk.jpeg"
               alt="Nika Kachibaia"
               width={600}
               height={600}

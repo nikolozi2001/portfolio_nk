@@ -20,16 +20,17 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       transition={{ duration: 0.5, delay: index * 0.08 }}
       whileHover={{ rotateY: 2, rotateX: -2, scale: 1.02 }}
       style={{ perspective: 1000 }}
+      className="h-full"
     >
-      <Link href={`/projects/${project.slug}`} className="group block">
-        <article className="overflow-hidden rounded-2xl glow-border glow-border-hover bg-card/80 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1">
-          {/* Project thumbnail */}
-          <div className="relative aspect-video overflow-hidden bg-muted">
+      <Link href={`/projects/${project.slug}`} className="group block h-full">
+        <article className="h-full flex flex-col overflow-hidden rounded-2xl glow-border glow-border-hover bg-card/80 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1">
+          {/* Project thumbnail — fixed height */}
+          <div className="relative h-44 shrink-0 overflow-hidden bg-muted">
             <ProjectThumbnail
               title={project.title}
               slug={project.slug}
               tags={project.tags}
-              className="absolute inset-0"
+              className="w-full h-full"
             />
             <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/5" />
             <div className="absolute top-3 right-3 rounded-full bg-card/90 p-2 opacity-0 transition-opacity group-hover:opacity-100">
@@ -37,10 +38,10 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </div>
           </div>
 
-          {/* Content */}
-          <div className="p-5">
+          {/* Content — flex grow to fill remaining space */}
+          <div className="flex flex-1 flex-col p-5">
             <div className="flex items-start justify-between gap-2">
-              <h3 className="font-semibold text-lg group-hover:text-accent transition-colors">
+              <h3 className="font-semibold text-lg group-hover:text-accent transition-colors line-clamp-1">
                 {project.title}
               </h3>
               <div className="flex gap-1 shrink-0">
@@ -57,13 +58,13 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               </div>
             </div>
 
-            <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
+            <p className="mt-2 text-sm text-muted-foreground line-clamp-2 flex-1">
               {project.description}
             </p>
 
-            {/* Tags */}
+            {/* Tags — always at bottom */}
             <div className="mt-4 flex flex-wrap gap-2">
-              {project.tags.slice(0, 4).map((tag) => (
+              {project.tags.slice(0, 3).map((tag) => (
                 <span
                   key={tag}
                   className="rounded-md bg-accent/10 px-2.5 py-1 text-xs font-mono font-medium text-accent"

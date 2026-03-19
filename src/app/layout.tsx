@@ -5,6 +5,8 @@ import { LocaleProvider } from "@/hooks/useLocale";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Analytics } from "@vercel/analytics/next";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { BackToTop } from "@/components/ui/BackToTop";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -70,9 +72,11 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <LocaleProvider>
+            <ScrollProgress />
             <Navbar />
             <main className="min-h-screen pt-16">{children}</main>
             <Footer />
+            <BackToTop />
           </LocaleProvider>
         </ThemeProvider>
         <Analytics />

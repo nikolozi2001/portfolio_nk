@@ -23,7 +23,7 @@ export function SkillsGrid({ skills, category }: SkillsGridProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.3, delay: index * 0.05 }}
           whileHover={{ y: -4 }}
-          className="group rounded-xl glow-border glow-border-hover bg-card/80 backdrop-blur-sm p-4"
+          className="group relative rounded-xl glow-border glow-border-hover bg-card/80 backdrop-blur-sm p-4"
         >
           <div className="flex items-center gap-3">
             <span className="text-2xl">{skill.icon}</span>
@@ -43,6 +43,18 @@ export function SkillsGrid({ skills, category }: SkillsGridProps) {
               </div>
             </div>
           </div>
+
+          {/* Tooltip on hover */}
+          {(skill.detail || skill.years) && (
+            <div className="pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 z-20 w-max max-w-[200px] rounded-lg bg-foreground px-3 py-1.5 text-xs text-background font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-lg">
+              {skill.detail}
+              {skill.years && (
+                <span className="ml-1 text-accent-light">· {skill.years}y</span>
+              )}
+              {/* Arrow */}
+              <div className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-2 w-2 rotate-45 bg-foreground" />
+            </div>
+          )}
         </motion.div>
       ))}
     </div>

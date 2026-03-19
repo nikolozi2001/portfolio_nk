@@ -16,6 +16,7 @@ export const translations = {
     hero: {
       badge: "Available for work",
       greeting: "Hi, I'm",
+      roles: ["Full Stack Developer", "GIS Specialist", "Data Engineer", "React Developer"],
       cta: "Get in Touch",
       viewProjects: "View Projects",
     },
@@ -146,6 +147,7 @@ export const translations = {
     hero: {
       badge: "ხელმისაწვდომი სამუშაოდ",
       greeting: "გამარჯობა, მე ვარ",
+      roles: ["Full Stack დეველოპერი", "GIS სპეციალისტი", "მონაცემთა ინჟინერი", "React დეველოპერი"],
       cta: "დამიკავშირდით",
       viewProjects: "პროექტები",
     },
@@ -264,7 +266,11 @@ export const translations = {
 
 // Widen literal types so both locales are assignable
 type DeepStringify<T> = {
-  [K in keyof T]: T[K] extends string ? string : DeepStringify<T[K]>;
+  [K in keyof T]: T[K] extends string
+    ? string
+    : T[K] extends readonly string[]
+      ? readonly string[] | string[]
+      : DeepStringify<T[K]>;
 };
 
 export type TranslationKey = DeepStringify<typeof translations.en>;

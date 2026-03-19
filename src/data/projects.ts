@@ -299,4 +299,19 @@ export const projects: Project[] = [
     featured: false,
     date: "2025-10",
   },
+  {
+    slug: "login-page",
+    title: "Futuristic Login Page",
+    description:
+      "A visually striking futuristic login page with modern UI effects and animations.",
+    longDescription:
+      "A beautifully designed futuristic login page featuring modern UI design with glassmorphism effects, gradient backgrounds, smooth animations, and responsive layout. Built with JavaScript and deployed on Vercel as a standalone UI showcase.",
+    image: "/projects/login-page.jpg",
+    tags: ["JavaScript", "CSS", "UI Design", "Vercel"],
+    category: "frontend",
+    liveUrl: "https://login-page-rose-alpha.vercel.app/",
+    githubUrl: "https://github.com/nikolozi2001/login-page",
+    featured: false,
+    date: "2025-03",
+  },
 ];
