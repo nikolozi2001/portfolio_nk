@@ -38,7 +38,20 @@
       "Bash(curl -sL -o \"$P/pcaxis-server.png\" \"https://api.microlink.io/?url=https://github.com/nikolozi2001/pcaxis-server&screenshot=true&meta=false&embed=screenshot.url\")",
       "Bash(curl -sL -o \"$P/salary-calculator.png\" \"https://api.microlink.io/?url=https://github.com/nikolozi2001/salary_calculator&screenshot=true&meta=false&embed=screenshot.url\")",
       "Bash(curl -sL -o \"$P/kaleidoscope.png\" \"https://api.microlink.io/?url=https://github.com/nikolozi2001/kaleidoscope&screenshot=true&meta=false&embed=screenshot.url\")",
-      "Bash(curl -sL -o \"$P/formio-platform.png\" \"https://api.microlink.io/?url=https://form.io&screenshot=true&meta=false&embed=screenshot.url\")"
+      "Bash(curl -sL -o \"$P/formio-platform.png\" \"https://api.microlink.io/?url=https://form.io&screenshot=true&meta=false&embed=screenshot.url\")",
+      "Bash(cp \"geostat-ai.png\" \"geostat-ai.png\")",
+      "Bash(cp \"salary-calculator.png\" \"salary-calculator.png\")",
+      "Bash(node -e \":*)",
+      "Bash(P=\"C:/Users/nqachibaia/OneDrive/Desktop/portfolio/public/projects\")",
+      "Bash(cp \"$P/medical-chatbot.png\" \"$P/medical-chatbot-frontend.png\")",
+      "Bash(cp \"$P/data-collection-form.png\" \"$P/data-collection-form-main.png\")",
+      "Bash(cp \"$P/geoserver-map.png\" \"$P/geoservermap.png\")",
+      "Bash(cp \"$P/fuel-app.png\" \"$P/fuelapp.png\")",
+      "Bash(cp \"$P/regional-statistics.png\" \"$P/regional-statistics-react.png\")",
+      "Bash(cp \"$P/business-register.png\" \"$P/br.png\")",
+      "Bash(cp \"$P/demography-api.png\" \"$P/demograpy-api.png\")",
+      "Bash(cp \"$P/invoice-app.png\" \"$P/invoice.png\")",
+      "Bash(cp \"$P/personal-inflation.png\" \"$P/personalinflation.png\")"
     ]
   }
 }
