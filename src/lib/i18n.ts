@@ -114,6 +114,9 @@ export const translations = {
       sentTitle: "Message Sent!",
       sentText: "Thanks for reaching out. I'll get back to you soon.",
       sendAnother: "Send another message",
+      errorTitle: "Failed to Send",
+      errorText: "Something went wrong. Please try again or email me directly.",
+      tryAgain: "Try again",
     },
 
     // Site
@@ -245,6 +248,9 @@ export const translations = {
       sentTitle: "შეტყობინება გაიგზავნა!",
       sentText: "მადლობა მომართვისთვის. მალე დაგიკავშირდებით.",
       sendAnother: "კიდევ ერთი შეტყობინების გაგზავნა",
+      errorTitle: "გაგზავნა ვერ მოხერხდა",
+      errorText: "რაღაც შეცდომა მოხდა. გთხოვთ სცადოთ ხელახლა ან მომწერეთ პირდაპირ ელ-ფოსტაზე.",
+      tryAgain: "ხელახლა ცდა",
     },
 
     // Site

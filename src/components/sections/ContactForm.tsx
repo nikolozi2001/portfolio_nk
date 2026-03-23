@@ -1,19 +1,35 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, useRef, FormEvent } from "react";
 import { motion } from "framer-motion";
-import { Send, Loader2, CheckCircle } from "lucide-react";
+import { Send, Loader2, CheckCircle, AlertCircle } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import { useLocale } from "@/hooks/useLocale";
 
 export function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle"
+  );
+  const formRef = useRef<HTMLFormElement>(null);
   const { t } = useLocale();
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("sending");
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setStatus("sent");
+
+    try {
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formRef.current!,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+      setStatus("sent");
+      formRef.current?.reset();
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      setStatus("error");
+    }
   }
 
   const inputClasses =
@@ -39,16 +55,39 @@ export function ContactForm() {
     );
   }
 
+  if (status === "error") {
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="flex flex-col items-center justify-center rounded-2xl glow-border bg-card/80 backdrop-blur-sm p-12 text-center"
+      >
+        <AlertCircle className="h-12 w-12 text-red-500" />
+        <h3 className="mt-4 text-xl font-semibold">{t.contact.errorTitle}</h3>
+        <p className="mt-2 text-muted-foreground">{t.contact.errorText}</p>
+        <button
+          onClick={() => setStatus("idle")}
+          className="mt-6 text-sm font-mono text-accent hover:underline"
+        >
+          {t.contact.tryAgain}
+        </button>
+      </motion.div>
+    );
+  }
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="mb-2 block text-xs font-mono uppercase tracking-wider text-muted-foreground">
+          <label
+            htmlFor="name"
+            className="mb-2 block text-xs font-mono uppercase tracking-wider text-muted-foreground"
+          >
             {t.contact.name}
           </label>
           <input
             id="name"
-            name="name"
+            name="from_name"
             type="text"
             required
             placeholder={t.contact.namePlaceholder}
@@ -56,12 +95,15 @@ export function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="email" className="mb-2 block text-xs font-mono uppercase tracking-wider text-muted-foreground">
+          <label
+            htmlFor="email"
+            className="mb-2 block text-xs font-mono uppercase tracking-wider text-muted-foreground"
+          >
             {t.contact.emailLabel}
           </label>
           <input
             id="email"
-            name="email"
+            name="from_email"
             type="email"
             required
             placeholder={t.contact.emailPlaceholder}
@@ -71,7 +113,10 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="subject" className="mb-2 block text-xs font-mono uppercase tracking-wider text-muted-foreground">
+        <label
+          htmlFor="subject"
+          className="mb-2 block text-xs font-mono uppercase tracking-wider text-muted-foreground"
+        >
           {t.contact.subject}
         </label>
         <input
@@ -85,7 +130,10 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-2 block text-xs font-mono uppercase tracking-wider text-muted-foreground">
+        <label
+          htmlFor="message"
+          className="mb-2 block text-xs font-mono uppercase tracking-wider text-muted-foreground"
+        >
           {t.contact.message}
         </label>
         <textarea
